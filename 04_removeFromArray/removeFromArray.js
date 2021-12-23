@@ -1,4 +1,5 @@
-//annabel's own solution
+//annabel's own solution - using arguments converted into an array and
+    //a two for loops
 // const removeFromArray = function(array) {
 //    let args = Array.prototype.slice.call(arguments, 1);
 //    let match = '';
@@ -25,27 +26,35 @@
 // };
 
 
-//solution 2
+//solution 2 - using rest parameters and for-each loop
+// const removeFromArray = function(...args){
+//     //first item in rest parameters is the array, so pull it out using args[0]
+//     const array = args[0];
+
+//     //create a new empty array
+//     const newArray = [];
+
+//     //use for-each to go through the array and an arrow function
+//     array.forEach((item) => {
+//         //push every element into the new array
+//         //unless it is included in the list of rest parameters passed
+//         if(!args.includes(item)){
+//             newArray.push(item);
+//         }
+//     });
+
+//     //return new array
+//     return newArray;
+// }
+
+//solution 3 - using 'filter' function
 const removeFromArray = function(...args){
-    //first item in rest parameters is the array, so pull it out using args[0]
+    //pull first argument which is an array out
     const array = args[0];
 
-    //create a new empty array
-    const newArray = [];
-
-    //use for-each to go through the array and an arrow function
-    array.forEach((item) => {
-        //push every element into the new array
-        //unless it is included in the list of rest parameters passed
-        if(!args.includes(item)){
-            newArray.push(item);
-        }
-    });
-
-    //return new array
-    return newArray;
+    //use filter function
+    return array.filter(item => !args.includes(item));
 }
-
 
 
 // let array = [1, 2, 3, 4];
