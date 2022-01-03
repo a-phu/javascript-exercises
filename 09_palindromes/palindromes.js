@@ -23,7 +23,7 @@
 const palindromes = function (string){
     //set string to lowercase and replace anything that is not a letter
     //[^A-Za-z] with a blank string
-    let processedString = string.toLowerCase().replace(/[^A-Za-z]/g, "");
+    let processedString = string.toLowerCase().replace(/[^A-Za-z0-9]/g, "");
 
     return (
         processedString
@@ -36,7 +36,7 @@ const palindromes = function (string){
     );
 }
 
-console.log(palindromes("racecar!"));
+console.log(palindromes("0P!"));
 
 // Do not edit below this line
 module.exports = palindromes;
